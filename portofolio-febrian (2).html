@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Febrian Dimas Prihantono | Visual Designer dari Banjarnegara</title>
+<meta name="description" content="Visual Designer, bapak dua anak, Gooner sejak kecil. Membangun visual, keluarga, dan masa depan dari Banjarnegara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TEMA WARNA: ubah baris-baris ini untuk ganti seluruh warna
+   ============================================================ */
+:root{
+  --red:#d0111b;        /* warna utama (dominan) */
+  --red-deep:#8e0911;   /* merah gelap untuk variasi */
+  --red-dark:#5a0508;   /* merah paling gelap (footer) */
+  --white:#ffffff;      /* warna kedua */
+  --ink:#2a0709;        /* teks gelap di atas putih */
+  --display:"Unbounded","Trebuchet MS",system-ui,sans-serif;
+  --body:"Sora",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(20px,5vw,64px);
+  --mx:50%;--my:30%;
+}
+.on-red{--bg:var(--red);--fg:#fff;--muted:rgba(255,255,255,.9);--line:rgba(255,255,255,.26);--grid:rgba(255,255,255,.09);--accent:#fff}
+.on-deep{--bg:var(--red-deep);--fg:#fff;--muted:rgba(255,255,255,.9);--line:rgba(255,255,255,.26);--grid:rgba(255,255,255,.07);--accent:#fff}
+.on-white{--bg:var(--white);--fg:var(--ink);--muted:#6b4548;--line:rgba(142,9,17,.2);--grid:rgba(142,9,17,.06);--accent:var(--red)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--red);color:#fff;font-family:var(--body);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+em{font-style:italic}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--gutter)}
+
+section.band{
+  position:relative;background-color:var(--bg);color:var(--fg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+.section{padding:clamp(64px,9vw,120px) 0}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(208,17,27,.92);border-bottom:1px solid rgba(255,255,255,.22);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:var(--display);font-weight:500;font-size:1rem;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:.9rem;color:rgba(255,255,255,.9)}
+.nav ul a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
+
+/* tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:999px;font-family:var(--body);font-weight:500;font-size:.95rem;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(0,0,0,.55)}
+.btn-ghost{border-color:var(--fg);color:var(--fg);background:transparent}
+.btn-ghost:hover{background:var(--fg);color:var(--bg)}
+.btn-sm{padding:9px 20px;font-size:.88rem;background:#fff;color:var(--red)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+
+/* hero */
+.hero{padding:clamp(50px,8vw,100px) 0 clamp(64px,8vw,120px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(255,255,255,.2),transparent 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;list-style:none}
+.roles li{padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);font-size:.85rem}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(2.1rem,5.3vw,4.2rem);line-height:1.08;letter-spacing:-.04em}
+h1 span{display:block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+h1 span:nth-child(2){animation-delay:.1s}
+h1 span:nth-child(3){animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.statement{margin-top:28px;font-family:var(--display);font-weight:400;font-size:clamp(1.05rem,2vw,1.4rem);line-height:1.45;letter-spacing:-.02em;max-width:30ch}
+.intro{margin-top:20px;max-width:52ch;color:var(--muted)}
+.slogan{margin-top:24px;font-weight:600}
+.slogan-jv{color:var(--muted);font-style:italic}
+
+.orbit{position:relative;width:100%;max-width:380px;aspect-ratio:1/1;margin:0 auto}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.45);animation:spin 28s linear infinite}
+.orbit .ring.r2{inset:11%;border-style:dashed;border-color:rgba(255,255,255,.5);animation-duration:20s;animation-direction:reverse}
+.orbit .ring::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#fff;box-shadow:0 0 16px #fff}
+.orbit .r2::after{background:var(--red-dark);box-shadow:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar{position:absolute;inset:22%;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#fff;color:var(--red);border:4px solid #fff;box-shadow:0 20px 60px -10px rgba(90,5,8,.7);font-family:var(--display);font-weight:500;font-size:clamp(2rem,6vw,3.2rem)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* judul bagian */
+h2{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.15;letter-spacing:-.03em}
+.sub{margin-top:14px;color:var(--muted);max-width:56ch}
+.prose p{color:var(--muted);max-width:60ch}
+.prose p + p{margin-top:20px}
+.prose strong{color:var(--accent);font-weight:500}
+.on-red .prose strong,.on-deep .prose strong{color:#fff;font-weight:600}
+.pull{margin-top:36px;max-width:900px;padding-left:clamp(18px,3vw,34px);border-left:3px solid var(--accent);font-family:var(--display);font-weight:400;font-size:clamp(1.05rem,2.2vw,1.6rem);line-height:1.45;letter-spacing:-.02em}
+
+/* tentang */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,6vw,90px);margin-top:44px}
+.facts{border-top:1px solid var(--line);align-self:start}
+.facts div{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.facts dt{color:var(--muted)}
+.facts dd{text-align:right;font-weight:500}
+
+/* perjalanan karir */
+.timeline{margin-top:54px;position:relative;padding-left:38px;display:grid;gap:42px;max-width:800px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.job{position:relative}
+.job::before{content:"";position:absolute;left:-38px;top:9px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.job.turn::before{background:var(--accent);box-shadow:0 0 0 6px rgba(255,255,255,.22)}
+.job .when{font-size:.88rem;color:var(--muted)}
+.job h3{font-family:var(--display);font-weight:400;font-size:clamp(1.05rem,2vw,1.3rem);letter-spacing:-.02em;margin-top:2px;line-height:1.35}
+.job p{margin-top:10px;color:var(--muted);max-width:58ch}
+
+/* baris (skill) */
+.rows{margin-top:48px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:14px 60px;padding:38px 0;border-bottom:1px solid var(--line);position:relative}
+.row::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--accent);transition:width .5s}
+.row:hover::before{width:100%}
+.row h3{font-family:var(--display);font-weight:400;font-size:clamp(1.1rem,2.2vw,1.5rem);letter-spacing:-.02em;line-height:1.3}
+.row p{color:var(--muted);max-width:54ch}
+
+/* keluarga */
+.fam{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.fam > div{padding-top:24px;border-top:1px solid var(--line);position:relative}
+.fam > div::before{content:"";position:absolute;left:0;top:-1px;width:56px;height:3px;background:var(--accent)}
+.fam .who{font-size:.85rem;color:var(--muted)}
+.fam h3{margin-top:4px;font-family:var(--display);font-weight:400;font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+.fam p{margin-top:12px;color:var(--muted);font-size:.97rem}
+
+/* penutup */
+.contact{padding:clamp(60px,9vw,120px) 0}
+.box{position:relative;overflow:hidden;background:#fff;color:var(--ink);border-radius:30px;padding:clamp(34px,7vw,84px);box-shadow:0 40px 90px -30px rgba(90,5,8,.8)}
+.box::after{content:"";position:absolute;right:-12%;top:-45%;width:60%;aspect-ratio:1;border-radius:50%;border:2px solid rgba(208,17,27,.18);pointer-events:none}
+.box h2{color:var(--red);max-width:16ch;position:relative;z-index:1}
+.box p{color:#6b4548;max-width:60ch;position:relative;z-index:1}
+.box p + p{margin-top:16px}
+.box .jv{font-style:italic;color:var(--ink)}
+.box .cta-row{position:relative;z-index:1}
+.box .btn-primary{background:var(--red);color:#fff}
+.box .btn-ghost{border-color:var(--red);color:var(--red)}
+.box .btn-ghost:hover{background:var(--red);color:#fff}
+
+footer{background:var(--red-dark);color:rgba(255,255,255,.88);padding:32px 0;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between}
+footer strong{color:#fff;font-weight:500}
+
+/* ===== EFEK ===== */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:#fff;box-shadow:0 0 12px #fff;z-index:50}
+.nav ul a{position:relative;transition:color .2s}
+.nav ul a.active{color:#fff;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px}
+
+/* jaringan partikel di hero */
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+/* tilt 3D dan melayang pada foto */
+.orbit{transition:transform .25s ease-out;will-change:transform}
+.avatar{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* kilau pada tombol */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-130%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn:hover::after{left:150%}
+
+/* pita berjalan */
+.marquee{background:var(--red-deep);color:#fff;overflow:hidden;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);padding:18px 0}
+.marquee .track{display:flex;width:max-content;animation:marquee 34s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee span{display:flex;align-items:center;font-family:var(--display);font-weight:500;font-size:clamp(1rem,2.2vw,1.6rem);letter-spacing:-.02em;white-space:nowrap}
+.marquee span::after{content:"";width:10px;height:10px;margin:0 clamp(22px,3vw,44px);border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.8)}
+.marquee span:nth-child(even){color:transparent;-webkit-text-stroke:1px #fff}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* muncul saat di-scroll */
+.rv{opacity:0;transform:translateY(34px);filter:blur(6px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),filter .8s}
+.rv.in{opacity:1;transform:none;filter:none}
+
+/* garis waktu terisi mengikuti scroll */
+.timeline::after{content:"";position:absolute;left:5px;top:8px;width:3px;height:calc((100% - 16px) * var(--p, 0));background:var(--accent);border-radius:3px;box-shadow:0 0 14px rgba(255,255,255,.9)}
+.job::before{transition:background .5s,box-shadow .5s,transform .5s}
+.job.in::before{background:var(--accent);transform:scale(1.15)}
+
+/* baris skill bergeser saat disorot */
+.row h3,.row p{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.row:hover h3{transform:translateX(12px)}
+.row:hover p{transform:translateX(6px)}
+.fam > div.in:hover{transform:translateY(-6px)}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .orbit{max-width:290px;order:-1;margin:0 0 10px}
+  .about{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .fam{grid-template-columns:1fr;gap:34px}
+}
+@media (max-width:640px){
+  .nav ul{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  h1 span,.orbit .ring,.avatar,.marquee .track{animation:none}
+  .btn::after{display:none}
+  .progress{display:none}
+  .btn,.row::before{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true"></i>Febrian</a>
+    <ul>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#karir">Perjalanan</a></li>
+      <li><a href="#skill">Skill</a></li>
+      <li><a href="#keluarga">Keluarga</a></li>
+    </ul>
+    <a class="btn btn-sm" href="#kontak">Hubungi saya</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO (merah) -->
+  <section class="band on-red hero" id="hero">
+    <canvas id="net" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div>
+        <ul class="roles">
+          <li>Visual Designer</li>
+          <li>Father of Two</li>
+          <li>Gooner Since Childhood</li>
+        </ul>
+        <h1><span>Febrian</span><span>Dimas</span><span>Prihantono</span></h1>
+        <p class="statement">Saya bukan arsitek. Tapi saya tetap membangun sesuatu setiap hari.</p>
+        <p class="intro">Dulu saya ingin membangun gedung. Sekarang saya membangun visual, membangun keluarga, dan membangun masa depan dari Banjarnegara.</p>
+        <p class="slogan">From Kuli Perusahaan, To Visual Builder.</p>
+        <p class="slogan-jv">Inyong tetep mlaku, ora mandeg.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#karir">Lihat portofolio saya</a>
+        </div>
+      </div>
+      <div class="orbit">
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+        <!-- EDIT: ganti isi div ini dengan fotomu: <img src="foto.jpg" alt="Foto Febrian"> -->
+        <div class="avatar">FP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PITA BERJALAN -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Visual Designer</span><span>Father of Two</span><span>Gooner Since Childhood</span><span>Banjarnegara</span><span>Design is my new architecture</span><span>North London Forever</span>
+      <span>Visual Designer</span><span>Father of Two</span><span>Gooner Since Childhood</span><span>Banjarnegara</span><span>Design is my new architecture</span><span>North London Forever</span>
+    </div>
+  </div>
+
+  <!-- 2. TENTANG SAYA (putih) -->
+  <section class="band on-white section" id="tentang">
+    <div class="wrap">
+      <h2>Halo, perkenalkan. Saya Febrian.</h2>
+      <div class="about">
+        <div class="prose">
+          <p>Lahir di Banjarnegara, Minggu Manis, 25 Februari 1990. Saya anak pertama dari 4 bersaudara, dari Ibu Suryati dan Bapak Martono.</p>
+          <p>Menjadi anak pertama itu tidak mudah. Kita dituntut untuk menjadi contoh, menjadi yang pertama mencoba, pertama gagal, dan pertama bangkit lagi. <em>Kudu kuat, kudu bisa diandalkan.</em></p>
+          <p>Waktu kecil, cita-cita saya ingin menjadi arsitek. Saya suka menggambar rumah, suka membayangkan gedung-gedung besar. Saya pikir, tangan saya lah yang nanti akan menggambar kota ini.</p>
+          <p>Namun hidup tidak selalu sesuai gambar.</p>
+          <p>Besar malah jadi kuli perusahaan. Tangan yang dulu ingin menggambar gedung, justru memegang kabel, memegang paket, memegang setir.</p>
+          <p>Tapi satu hal yang tidak pernah hilang: <strong>saya tetap suka hal visual dan grafis. Intinya adalah desain.</strong></p>
+          <p>Bagi saya, desain adalah arsitektur versi baru. Kalau dulu saya ingin menggambar gedung, sekarang saya menggambar ide, menggambar cerita, dan menggambar masa depan lewat visual. <em>Design is my new architecture.</em></p>
+        </div>
+        <dl class="facts">
+          <div><dt>Asal</dt><dd>Banjarnegara</dd></div>
+          <div><dt>Lahir</dt><dd>25 Februari 1990</dd></div>
+          <div><dt>Urutan</dt><dd>Anak pertama dari 4</dd></div>
+          <div><dt>Orang tua</dt><dd>Ibu Suryati dan Bapak Martono</dd></div>
+          <div><dt>Passion</dt><dd>Desain dan visual</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PERJALANAN KARIR (merah) -->
+  <section class="band on-red section" id="karir">
+    <div class="wrap">
+      <h2>Perjalanan saya</h2>
+      <p class="sub">Ini bukan karir yang lurus ke atas. Ini karir yang berputar, tapi selalu naik level. <em>Step by step, alon-alon waton kelakon.</em></p>
+      <div class="timeline">
+        <div class="job">
+          <div class="when">2012 sampai 2013</div>
+          <h3>KDK (Karya Duta Konsulindo), Elektronik</h3>
+          <p>Awal saya mengenal dunia kerja yang sesungguhnya. Di sini saya belajar disiplin, belajar elektronik, dan belajar tanggung jawab.</p>
+        </div>
+        <div class="job">
+          <div class="when">2013 sampai 2014</div>
+          <h3>PT Jaya Kencana</h3>
+          <p>Pindah, adaptasi lagi, belajar lagi dari nol. Di sini saya mengerti, kerja itu bukan hanya soal gaji, tapi soal mental.</p>
+        </div>
+        <div class="job turn">
+          <div class="when">Titik balik</div>
+          <h3>Operator Warnet</h3>
+          <p>Sambil menjaga warnet, saya berkenalan dengan dunia digital, web, gambar, dan internet. Orang lain ke warnet hanya untuk main game, saya justru belajar dunia baru di sana.</p>
+        </div>
+        <div class="job">
+          <div class="when">2017 sampai 2018</div>
+          <h3>J&amp;T Express</h3>
+          <p>Dunia ekspedisi. Kerja cepat, kerja akurat, kerja di bawah tekanan. Di sini saya belajar tentang kecepatan dan kepercayaan. <em>On time, no excuse.</em></p>
+        </div>
+        <div class="job">
+          <div class="when">2018 sampai sekarang</div>
+          <h3>BPR Bank Surya Yudha Kencana</h3>
+          <p>Sekarang saya berada di dunia perbankan. Dari kuli lapangan sampai ke institusi keuangan. Lebih rapi, lebih stabil, lebih bertanggung jawab.</p>
+        </div>
+      </div>
+      <p class="pull">Banyak orang melihat ini hanya pindah-pindah kerja. Tapi bagi saya, ini adalah sekolah kehidupan selama 12 tahun yang tidak diajarkan di bangku kuliah.</p>
+    </div>
+  </section>
+
+  <!-- 4. SKILL (putih) -->
+  <section class="band on-white section" id="skill">
+    <div class="wrap">
+      <h2>Apa yang saya bisa</h2>
+      <p class="sub">Saya bukan desainer lulusan kampus seni. Saya desainer lulusan kehidupan. <em>Learn by doing.</em></p>
+      <div class="rows">
+        <article class="row">
+          <h3>Visual, grafis, dan desain</h3>
+          <p>Ini passion saya dari kecil. Saya suka membuat sesuatu yang enak dilihat, mudah dimengerti, dan membuat orang berhenti scrolling. Landing page, poster, feed, thumbnail, semua yang berbau visual.</p>
+        </article>
+        <article class="row">
+          <h3>Web dan perkembangan IT</h3>
+          <p>Saya suka hal baru. Web baru, tools baru, AI baru, semua saya coba. Bagi saya, teknologi adalah alat untuk mempercepat mimpi. <em>Stay updated, or stay behind.</em></p>
+        </article>
+        <article class="row">
+          <h3>Storytelling</h3>
+          <p>Saya tidak hanya bisa membuat gambar yang bagus. Saya bisa membuat gambar yang bercerita. Karena saya tahu, orang tidak membeli produk, orang membeli cerita di balik produk itu.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. KELUARGA (merah) -->
+  <section class="band on-red section" id="keluarga">
+    <div class="wrap">
+      <h2>Keluarga saya, alasan saya</h2>
+      <p class="sub">Di balik semua kerja keras ini, ada 3 nama yang menjadi alasan saya tidak boleh menyerah.</p>
+      <div class="fam">
+        <div>
+          <div class="who">Istri</div>
+          <h3>Dian Septiyani</h3>
+          <p>Partner hidup saya, partner berjuang, partner membangun mimpi.</p>
+        </div>
+        <div>
+          <div class="who">Anak 1</div>
+          <h3>Febita Khairinadi Micheli</h3>
+          <p>Anak pertama saya. Yang mengajarkan saya menjadi seorang bapak.</p>
+        </div>
+        <div>
+          <div class="who">Anak 2</div>
+          <h3>Nael Admiral Al Haizer</h3>
+          <p>Jagoan kecil saya. Yang mengajarkan saya bahwa hidup harus tetap berlayar walau ombak besar.</p>
+        </div>
+      </div>
+      <p class="pull">Mereka adalah alasan kenapa anak pertama dari keluarga Martono dan Suryati ini harus terus naik kelas. <em>Keluarga adalah proyek terbesar saya.</em></p>
+    </div>
+  </section>
+
+  <!-- 6. ARSENAL & FILOSOFI (merah gelap) -->
+  <section class="band on-deep section" id="arsenal">
+    <div class="wrap">
+      <h2>Arsenal dan filosofi hidup</h2>
+      <div class="prose" style="margin-top:40px">
+        <p>Saya suka Arsenal dari kecil.</p>
+        <p>Bukan karena selalu juara. Justru karena Arsenal mengajarkan saya arti setia dalam proses.</p>
+        <p>Arsenal pernah jatuh, pernah dihina, pernah dibilang tidak akan juara lagi. Tapi tetap bangun, tetap main cantik, tetap percaya proses.</p>
+        <p>Persis seperti hidup saya. Dari cita-cita jadi arsitek, jadi kuli, jadi operator warnet, jadi kurir, sampai sekarang di bank. Saya tidak pernah pindah tim. Saya tetap di lapangan, tetap main sampai peluit akhir.</p>
+      </div>
+      <p class="pull">Prinsip saya: North London Forever. Keluarga Nomor Satu. Proses Nomor Dua. Hasil Akan Menyusul.</p>
+      <p style="margin-top:18px;color:var(--muted)"><em>Trust the process, just like Arsenal.</em></p>
+    </div>
+  </section>
+
+  <!-- 7. PENUTUP (merah, kartu putih) -->
+  <section class="band on-red contact" id="kontak">
+    <div class="wrap">
+      <div class="box">
+        <h2>Let's connect.</h2>
+        <p>Jadi, ini saya. Febrian Dimas Prihantono. Bukan orang paling pintar. Bukan orang paling sukses. Tapi orang yang tidak pernah berhenti belajar dan tidak pernah berhenti membangun.</p>
+        <p>Kalau Anda butuh orang yang bisa membantu membuat visual, membuat landing page, membuat ide Anda terlihat nyata, atau sekadar ngobrol soal desain, IT, Arsenal, atau menjadi bapak anak 2...</p>
+        <p class="jv">Yuk ngobrol. Aja isin, inyong wong Banjarnegara, gampang diajak ngobrol.</p>
+        <div class="cta-row">
+          <!-- EDIT: ganti 62xxxxxxxxxx dengan nomor WhatsApp (format 62, tanpa 0 di depan dan tanpa +) -->
+          <a class="btn btn-primary" href="https://wa.me/62xxxxxxxxxx">Hubungi saya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Banjarnegara, 2026.</strong> Dari anak pertama, untuk keluarga.</span>
+    <span>&copy; 2026 Febrian Dimas Prihantono</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var d = document;
+  var hero = d.getElementById('hero');
+
+  /* 1. progress bar, garis waktu, menu aktif */
+  var bar = d.querySelector('.progress');
+  var tl = d.querySelector('.timeline');
+  var secs = [].slice.call(d.querySelectorAll('main section[id]'));
+  var links = [].slice.call(d.querySelectorAll('.nav ul a'));
+  var sTick = false;
+  function onScroll(){
+    var max = d.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0) + ')';
+    if (tl) {
+      var r = tl.getBoundingClientRect();
+      var p = (innerHeight * 0.65 - r.top) / r.height;
+      tl.style.setProperty('--p', Math.max(0, Math.min(1, p)));
+    }
+    var cur = '';
+    secs.forEach(function(s){ if (s.getBoundingClientRect().top <= innerHeight * 0.35) cur = s.id; });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+    sTick = false;
+  }
+  addEventListener('scroll', function(){
+    if (!sTick) { sTick = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  /* 2. muncul bertahap saat di-scroll */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          var t = en.target;
+          t.classList.add('in');
+          io.unobserve(t);
+          setTimeout(function(){ t.style.transitionDelay = ''; }, 1400);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    d.querySelectorAll('main section:not(.hero) :is(h2,.sub,.facts,.prose p,.job,.row,.fam > div,.pull,.box)').forEach(function(el){
+      var idx = [].indexOf.call(el.parentNode.children, el);
+      el.style.transitionDelay = Math.min(idx, 5) * 90 + 'ms';
+      el.classList.add('rv');
+      io.observe(el);
+    });
+  }
+
+  /* 3. kursor di hero: cahaya, tilt foto, jaringan partikel */
+  var orbit = d.querySelector('.orbit');
+  var cv = d.getElementById('net'), ctx = cv.getContext('2d');
+  var W = 0, H = 0, P = [], mouse = { x: -999, y: -999 }, running = false, inView = true;
+  function size(){
+    var dpr = Math.min(devicePixelRatio || 1, 2);
+    var b = hero.getBoundingClientRect();
+    W = b.width; H = b.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(70, W * H / 15000));
+    P = [];
+    for (var i = 0; i < n; i++) {
+      P.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4, r: 1 + Math.random() * 1.6 });
+    }
+  }
+  function frame(){
+    if (!inView) { running = false; return; }
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < P.length; i++) {
+      var p = P[i];
+      var dx = p.x - mouse.x, dy = p.y - mouse.y, dm = Math.sqrt(dx * dx + dy * dy);
+      if (dm < 130 && dm > 0) { p.x += dx / dm * 1.1; p.y += dy / dm * 1.1; }
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      ctx.fillStyle = 'rgba(255,255,255,.75)';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+      for (var j = i + 1; j < P.length; j++) {
+        var q = P[j], ex = p.x - q.x, ey = p.y - q.y, ed = Math.sqrt(ex * ex + ey * ey);
+        if (ed < 120) {
+          ctx.strokeStyle = 'rgba(255,255,255,' + (1 - ed / 120) * .35 + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }
+      if (dm < 170) {
+        ctx.strokeStyle = 'rgba(255,255,255,' + (1 - dm / 170) * .5 + ')';
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  function start(){ if (!running) { running = true; requestAnimationFrame(frame); } }
+  size(); start();
+  addEventListener('resize', size);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){ inView = en[0].isIntersecting; if (inView) start(); }).observe(hero);
+  }
+
+  var pTick = false, px = 0, py = 0, pe = null;
+  hero.addEventListener('pointermove', function(e){
+    pe = e;
+    var b = hero.getBoundingClientRect();
+    px = e.clientX - b.left; py = e.clientY - b.top;
+    mouse.x = px; mouse.y = py;
+    if (pTick) return;
+    pTick = true;
+    requestAnimationFrame(function(){
+      hero.style.setProperty('--mx', px + 'px');
+      hero.style.setProperty('--my', py + 'px');
+      if (orbit && pe) {
+        var o = orbit.getBoundingClientRect();
+        var nx = Math.max(-1, Math.min(1, (pe.clientX - (o.left + o.width / 2)) / 450));
+        var ny = Math.max(-1, Math.min(1, (pe.clientY - (o.top + o.height / 2)) / 450));
+        orbit.style.transform = 'perspective(800px) rotateY(' + nx * 16 + 'deg) rotateX(' + (-ny * 16) + 'deg)';
+      }
+      pTick = false;
+    });
+  });
+  hero.addEventListener('pointerleave', function(){
+    mouse.x = mouse.y = -999;
+    if (orbit) orbit.style.transform = '';
+  });
+})();
+</script>
+</body>
+</html>
